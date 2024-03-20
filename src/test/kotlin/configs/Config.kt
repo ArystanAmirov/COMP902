@@ -3,7 +3,9 @@ package configs
 
 import com.microsoft.playwright.*
 
-const val URL = "https://mywebapp29.azurewebsites.net/"
+//const val URL = "https://mywebapp29.azurewebsites.net/"
+const val URL = "https://localhost:7777/"
+
 
 val playWrite: Playwright = Playwright.create()
 var browser: Browser = playWrite.chromium().launch(BrowserType.LaunchOptions().setHeadless(false).setSlowMo(100.0).setTimeout(50000.0))
