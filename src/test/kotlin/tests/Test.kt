@@ -1,14 +1,16 @@
 package tests
 
+import configs.TestListener
 import configs.URL
 import lists.User
+import org.testng.annotations.Listeners
 import org.testng.annotations.Test
 import pages.*
-import java.lang.Thread.sleep
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 
+@Listeners(TestListener::class)
 class Test (private val user: User = lists.user) {
     @Test(priority = 1)
     fun register() {
@@ -52,6 +54,8 @@ class Test (private val user: User = lists.user) {
     @Test(priority = 5)
     fun logout() {
         user.page.click(ordersPage.logout_btn)
+        assertTrue(user.page.isVisible(mainPage.register_btn))
+        assertTrue(user.page.isVisible(mainPage.login_btn))
     }
 }
 

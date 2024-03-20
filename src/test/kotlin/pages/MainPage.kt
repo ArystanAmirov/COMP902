@@ -1,6 +1,7 @@
 package pages
 
 class MainPage {
+    val login_btn = "text=Log in"
     val register_btn = "text=Register"
     val successRegistration_label = "text=Your account was created successfully"
     val username_label = "xpath=/html/body/header/nav/div/div/div/div"
