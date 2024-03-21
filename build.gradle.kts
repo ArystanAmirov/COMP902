@@ -15,20 +15,11 @@ repositories {
 dependencies {
     implementation("com.microsoft.playwright:playwright:1.25.0")
     implementation("com.sikulix:sikulixapi:2.0.5")
-    implementation("com.googlecode.json-simple:json-simple:1.1.1")
-    implementation("org.springframework.security:spring-security-core:5.7.3")
-
-    implementation("org.testcontainers:testcontainers:1.11.2")
-    implementation("org.testcontainers:postgresql:1.12.3")
-    implementation("org.postgresql:postgresql:42.2.7")
-    implementation("org.springframework:spring-jdbc:5.1.9.RELEASE")
-    implementation("org.json:json:20180813")
-    implementation("com.squareup.okhttp3:okhttp:4.9.3")
-
+    implementation("org.testcontainers:testcontainers:1.19.7")
     testImplementation("org.testng:testng:7.7.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:1.5.10")
 
-    implementation("javazoom:jlayer:1.0.1")
+    implementation("org.seleniumhq.selenium:selenium-java:4.18.1")
 }
 
 tasks.withType<KotlinCompile>() {
@@ -38,5 +29,3 @@ tasks.withType<KotlinCompile>() {
 application {
     mainClass.set("com.microsoft.playwright.CLI")
 }
-
-
