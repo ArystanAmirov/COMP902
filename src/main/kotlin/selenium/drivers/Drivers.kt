@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.edge.EdgeDriver
 import org.openqa.selenium.firefox.FirefoxDriver
+import org.openqa.selenium.firefox.FirefoxOptions
 
 class Drivers {
     fun chromeDriver(): WebDriver {
@@ -13,9 +14,11 @@ class Drivers {
         return driver
     }
 
-    fun mozillaDriver(): WebDriver {
+    fun firefoxDriver(): WebDriver {
         System.setProperty("webdriver.gecko.driver", "E:\\INSTALL\\IdeaProjects\\COMP902\\drivers\\geckodriver.exe")
-        val driver: WebDriver = FirefoxDriver()
+        val options = FirefoxOptions()
+        options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe")
+        val driver: WebDriver = FirefoxDriver(options)
         driver.manage().window().maximize()
         return driver
     }

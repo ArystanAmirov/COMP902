@@ -13,7 +13,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 @Listeners(TestListener::class)
-class Test(private val user: User = selenium.lists.user) {
+class SeleniumTest(private val user: User = selenium.lists.user) {
 
     private val driver: WebDriver = Drivers().chromeDriver()
 
@@ -49,6 +49,7 @@ class Test(private val user: User = selenium.lists.user) {
         driver.findElement(By.xpath(cartPage.completeOrder)).click()
         driver.findElement(By.xpath(cartPage.ok_btn)).click()
     }
+
 
     @Test(priority = 4)
     fun checkOrders() {

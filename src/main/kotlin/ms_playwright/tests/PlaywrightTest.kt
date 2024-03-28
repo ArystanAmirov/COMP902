@@ -10,7 +10,7 @@ import kotlin.test.assertTrue
 
 
 @Listeners(TestListener::class)
-class Test (private val user: User = ms_playwright.lists.user) {
+class PlaywrightTest (private val user: User = ms_playwright.lists.user) {
     @Test(priority = 1)
     fun register() {
         user.page.navigate(URL)
@@ -55,6 +55,7 @@ class Test (private val user: User = ms_playwright.lists.user) {
         user.page.click(ordersPage.logout_btn)
         assertTrue(user.page.isVisible(mainPage.register_btn))
         assertTrue(user.page.isVisible(mainPage.login_btn))
+        user.page.close()
     }
 }
 

@@ -1,0 +1,35 @@
+Шаги для настройки проекта для запуска тестов TestNG при помощи Java-файла:
+
+1. Изменение конфигурации Gradle:
+   - Замените все testImplementation на implementation.
+   - Измените в секции "application" строку "com.microsoft.playwright.CLI" на "ms_playwright.runner.MainKt".
+   - Добавьте задачу:
+
+tasks.shadowJar {
+    archiveClassifier.set("")
+    manifest {
+        attributes["Main-Class"] = "ms_playwright.runner.MainKt"
+    }
+}
+
+2. Создание Java-файла для запуска тестов:
+   - Переименуйте src/test/kotlin на src/main/kotlin.
+   - Создайте в src/main/kotlin пакет ms_playwright
+   - Создайте в src/main/kotlin/ms_playwright пакет runner.
+   - Создайте Java-класс Main по этому пути src/main/kotlin/ms_playwright/runner:
+
+	package ms_playwright.runner
+
+	import org.testng.TestNG
+	import ms_playwright.tests.PlaywrightTest
+
+	fun main(args: Array<String>) {
+  	  val testng = TestNG()
+   	 testng.setTestClasses(arrayOf(PlaywrightTest::class.java))
+   	 testng.run()
+	}
+
+
+4. Сборка и запуск проекта:
+   - Команда создания JAR-файла: ./gradlew shadowJar
+   - Команда запустка JAR-файла: java -jar build/libs/COMP902-1.0-SNAPSHOT.jar
